@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>نادي أدِيب</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="one">
+		<div class="img">
+			<img src="q.png" alt="">
+		</div>
+
+		<form name="send" id="send" method="post" action="https://script.google.com/macros/s/AKfycbwdR-mNk4umVxvIqDtEvxAjQNXXiQ3j5Ijb8loY6mSL-zIkOnUDihcNSj16jZivHrkT/exec">
+			<div class="q">
+			<input class="input" type="text" placeholder="✍🏻الأسم الثلاثي" name="الأسم" required> 
+		</div>
+		<div class="q">
+			<textarea id="name" name="اقتراحات العضو" id="" cols="0" rows="4" placeholder="  ✨هذه المساحه لك.. تقدر تقترح أفكار، فـ أطلق المُفكر المُبدع الذي بداخلك " required></textarea>
+		</div>
+
+			<div class="button">
+				<button onclick="sweetalertclick()">ارســـال</button>
+			  </div>
+		</form>
+
+		<footer>
+			<a href="https://twitter.com/AB_KFU" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+			<a href="#"><i class="fa-brands fa-youtube" target="_blank"></i></a>
+			<a href="https://www.tiktok.com/@ab_kfu" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+		</footer>
+
+	</div>
+
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script>
+		const scriptURL = 'https://script.google.com/macros/s/AKfycbwdR-mNk4umVxvIqDtEvxAjQNXXiQ3j5Ijb8loY6mSL-zIkOnUDihcNSj16jZivHrkT/exec'
+		const form = document.forms['send']
+		
+		form.addEventListener('submit', e => {
+			  e.preventDefault()
+			  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+			  Swal.fire({
+	  title: '!شُكرًا لك',
+	  text: ".💚وصلتنا اقتراحاتك وإن شاء الله تشوفها على أرض الواقع",
+	  icon: 'success',
+	  confirmButtonColor: '#0051b2',
+	  confirmButtonText: '<a href="https://twitter.com/AB_KFU">تم</a>' , 
+	})
+			})
+		  </script>
+
+<script>
+	function sweetalertclick(){
+	Swal.fire({
+icon: 'error',
+title: '!يرجى ملئ الحقول الفارغة ي شاطر',
+text: '',
+confirmButtonColor: '#0051b2',
+})}
+  </script>
+
+  <script>
+	  document.addEventListener('invalid', (function () {
+  return function (e) {
+    e.preventDefault();
+    document.getElementById("name").focus();
+  };
+})(), true);
+  </script>
+
+</body>
+</html>
